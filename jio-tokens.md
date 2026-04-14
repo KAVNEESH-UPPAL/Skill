@@ -4,7 +4,7 @@
 
 ---
 
-## 1. COLOURS suhishi
+## 1. COLOURS 
 
 ### Primary Colours
 - Main Brand Colour: #E30513
