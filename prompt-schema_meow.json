@@ -1,0 +1,146 @@
+{
+    "schema_version": "1.0",
+    "schema_name": "Jio Banner Generator — Input Form",
+    "description": "This is the structured input format for every banner request. Every field here maps to something visual in the final banner.",
+  
+    "fields": {
+  
+      "headline": {
+        "type": "string",
+        "required": true,
+        "max_characters": 60,
+        "description": "The big bold text at the top of the banner",
+        "example": "Unlimited Entertainment"
+      },
+  
+      "sub_copy": {
+        "type": "string",
+        "required": false,
+        "max_characters": 120,
+        "description": "Smaller supporting text below the headline",
+        "example": "Stream movies, sports, and music on Jio Fiber"
+      },
+  
+      "cta_text": {
+        "type": "string",
+        "required": true,
+        "max_characters": 25,
+        "description": "The button text — what you want people to click",
+        "example": "Get Jio Fiber Now"
+      },
+  
+      "campaign_theme": {
+        "type": "enum",
+        "required": true,
+        "allowed_values": [
+          "product_launch",
+          "festive",
+          "recharge_promo",
+          "fiber_promo",
+          "entertainment",
+          "sports",
+          "offer_announcement"
+        ],
+        "description": "What kind of campaign is this banner for?",
+        "example": "product_launch"
+      },
+  
+      "mood": {
+        "type": "enum",
+        "required": true,
+        "allowed_values": [
+          "energetic",
+          "calm",
+          "premium",
+          "fun",
+          "urgent",
+          "festive"
+        ],
+        "description": "The feeling the banner should give the viewer",
+        "example": "energetic"
+      },
+  
+      "target_platform": {
+        "type": "enum",
+        "required": true,
+        "allowed_values": [
+          "instagram_post",
+          "instagram_story",
+          "facebook_feed",
+          "linkedin_feed",
+          "whatsapp_story",
+          "website_leaderboard",
+          "website_rectangle",
+          "website_skyscraper",
+          "all_social",
+          "all_web",
+          "all_formats"
+        ],
+        "description": "Where will this banner be shown?",
+        "example": "instagram_post"
+      },
+  
+      "banner_sizes": {
+        "type": "array",
+        "required": true,
+        "description": "Which sizes do you need? Pick from standard list or enter custom.",
+        "allowed_values": [
+          "1200x628",
+          "1080x1080",
+          "1080x1920",
+          "728x90",
+          "300x250",
+          "160x600",
+          "custom"
+        ],
+        "example": ["1080x1080", "1080x1920"]
+      },
+  
+      "custom_size": {
+        "type": "object",
+        "required": false,
+        "description": "Only fill this if you chose 'custom' in banner_sizes",
+        "properties": {
+          "width": { "type": "number", "example": 800 },
+          "height": { "type": "number", "example": 400 }
+        }
+      },
+  
+      "primary_colour_override": {
+        "type": "string",
+        "required": false,
+        "description": "Optional — override the default Jio brand colour for this banner only. Must be a valid hex code.",
+        "example": "#FF6B00"
+      },
+  
+      "include_logo": {
+        "type": "boolean",
+        "required": false,
+        "default": true,
+        "description": "Should the Jio logo appear on the banner?"
+      },
+  
+      "variations_needed": {
+        "type": "number",
+        "required": false,
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "description": "How many different design options do you want generated?"
+      }
+  
+    },
+  
+    "example_request": {
+      "headline": "Unlimited Entertainment",
+      "sub_copy": "Stream everything on Jio Fiber",
+      "cta_text": "Get Jio Fiber Now",
+      "campaign_theme": "product_launch",
+      "mood": "energetic",
+      "target_platform": "all_social",
+      "banner_sizes": ["1080x1080", "1080x1920", "1200x628"],
+      "include_logo": true,
+      "variations_needed": 3
+    }
+  
+  }
